@@ -1,2 +1,16 @@
-macOSVersions:
-  - 12.7.6
+name: Build macOS DMG
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_macos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Run gibMacOS
+        run: |
+          python gibMacOS.py
+          # ici tu peux passer la version à télécharger
